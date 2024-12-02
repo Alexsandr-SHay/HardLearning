@@ -10,7 +10,7 @@ console.log(result ** 3);
 console.log((result ** 3).toString().substring(0, 2));
 
 console.log(
-  //Рабочий метод только для первой части задания
+  /*Рабочий метод только для первой части задания*/
   num
     .toString()
     .split("")
