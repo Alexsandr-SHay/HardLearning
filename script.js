@@ -1,10 +1,52 @@
-let num = 266219;
-num = num.toString();
-let result = 1;
-for (let i = 0; i <= num.length - 1; i++) {
-  result *= Number(num[i]);
-}
-console.log(result);
+"use strict";
 
-console.log(result ** 3);
-console.log((result ** 3).toString().substring(0, 2));
+let ruWeek = [
+  "Понедельник",
+  "вторник",
+  "среда",
+  "четверг",
+  "пятница",
+  "суббота",
+  "воскресенье",
+];
+let enWeek = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
+
+let lang = "ru";
+
+if (lang === "ru") {
+  console.log(ruWeek);
+} else {
+  console.log(enWeek);
+}
+
+lang = "en";
+switch (true) {
+  case lang === "ru":
+    console.log(ruWeek);
+    break;
+  case lang === "en":
+    console.log(enWeek);
+    break;
+}
+
+let array = [];
+array.ru = ruWeek;
+array.en = enWeek;
+console.log(array[lang]);
+
+let namePerson = "Alex";
+console.log(
+  namePerson === "Артем"
+    ? "Директор"
+    : namePerson === "Александр"
+    ? "Преподователь"
+    : "Студент"
+);
