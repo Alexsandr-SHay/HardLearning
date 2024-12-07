@@ -1,18 +1,18 @@
 "use strict";
 
-// //первое задание
-// let numbers = [123, 234, 3456, 45678, 569, 6897, 279];
+//Первое задание
+let numbers = [123, 234, 3456, 45678, 569, 6897, 279];
 
-// for (let i = 0; i < numbers.length; i++) {
-//   if (numbers[i].toString()[0] == 2 || numbers[i].toString()[0] == 4) {
-//     console.log(
-//       "Число начинается на 2 или 4 - " +
-//         numbers[i] +
-//         " Индекс числа в массиве " +
-//         i
-//     );
-//   }
-// }
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i].toString()[0] == 2 || numbers[i].toString()[0] == 4) {
+    console.log(
+      "Число начинается на 2 или 4 - " +
+        numbers[i] +
+        " Индекс числа в массиве " +
+        i
+    );
+  }
+}
 
 //Второе задание
 
