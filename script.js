@@ -1,31 +1,44 @@
 "use strict";
 
-const week = [
-  "Понедельник",
-  "Вторник",
-  "Среда",
-  "Четверг",
-  "Пятница",
-  "Суббота",
-  "Воскресенье",
-];
+function setInterval() {
+  let now = new Date();
+  document.getElementById("time").innerHTML = allData(now);
+  document.getElementById("time1").innerHTML = now
+    .toLocaleString("ru")
+    .replace(",", " -"); // за счёт подобранного формата функция для 3 задания не нужна
+  setTimeout(setInterval, 1000);
+}
 
-const divElem = document.createElement("div");
-document.body.append(divElem);
-const getDay = new Date();
+function numDecline(n, titles) {
+  return titles[
+    1 === n % 10 && 11 !== n % 100
+      ? 0
+      : 2 <= n % 10 && 4 >= n % 10 && (10 > n % 100 || 20 <= n % 100)
+      ? 1
+      : 2
+  ];
+}
 
-week.forEach(function (item) {
-  const element = document.createElement("p");
-  element.textContent = item;
-  divElem.appendChild(element);
-});
-const days = document.querySelectorAll("p");
+function allData(now) {
+  let date = new Intl.DateTimeFormat("ru", {
+    dateStyle: "full",
+  }).format(now);
 
-days.forEach(function (item, index) {
-  if (index == getDay.getDay() - 1) {
-    item.style.fontWeight = "bold";
-  }
-  if (index > 4) {
-    item.style.fontStyle = "italic";
-  }
-});
+  return (
+    date +
+    " " +
+    now.getHours() +
+    " " +
+    numDecline(now.getHours(), ["час", "часа", "часов"]) +
+    " " +
+    now.getMinutes() +
+    " " +
+    numDecline(now.getMinutes(), ["минута", "минуты", "минут"]) +
+    " " +
+    now.getSeconds() +
+    " " +
+    numDecline(now.getSeconds(), ["секунда", "секунды", "секунд"])
+  );
+}
+
+setInterval();
