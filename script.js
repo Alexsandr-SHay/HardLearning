@@ -6,6 +6,7 @@ const DomElement = {
   width: 350 + "px",
   bg: "red",
   fontSize: 100 + "px",
+  position: "relative", //
 
   createElement: function () {
     switch (this.selector[0]) {
@@ -31,6 +32,7 @@ const DomElement = {
     divElement.style.width = this.width;
     divElement.style.background = this.bg;
     divElement.style.fontSize = this.fontSize;
+    divElement.style.position = this.position;
     document.body.append(divElement);
   },
 
@@ -47,24 +49,41 @@ const DomElement = {
   },
 };
 
-const element1 = Object.create(DomElement);
-// Создание объекта с данными по умолчанию (div)
-element1.selector = ".car";
-element1.createElement();
-console.log(document.querySelectorAll(".car")); // Проверка наличия класса
+const start = function () {
+  createElement();
+  squareMovement();
+};
 
-// Создание объекта с полным переопределением данных (div)
-element1.selector = ".train";
-element1.height = "auto";
-element1.width = "auto";
-element1.bg = "yellow";
-element1.fontSize = "150px";
-element1.createElement();
-console.log(document.querySelectorAll(".train")); // Проверка наличия класса
+const createElement = function () {
+  const element = Object.create(DomElement);
+  element.selector = ".square";
+  element.width = "100px";
+  element.height = "100px";
+  element.bg = "black";
+  element.position = "absolute";
+  element.createElement();
+};
 
-// Создание объекта с частичным переопредлением данных (p)
-element1.selector = "#plane";
-element1.bg = "green";
-element1.fontSize = "75px";
-element1.createElement();
-console.log(document.querySelectorAll("#plane")); // id наличия класса
+const squareMovement = function () {
+  let square = document.querySelector(".square");
+  square.innerHTML = "";
+  square.style.top = "100px";
+  square.style.left = "100px";
+
+  window.addEventListener("keydown", function (event) {
+    if (event.code == "ArrowUp") {
+      square.style.top = parseInt(square.style.top) - 10 + "px";
+    }
+    if (event.code == "ArrowDown") {
+      square.style.top = parseInt(square.style.top) + 10 + "px";
+    }
+    if (event.code == "ArrowLeft") {
+      square.style.left = parseInt(square.style.left) - 10 + "px";
+    }
+    if (event.code == "ArrowRight") {
+      square.style.left = parseInt(square.style.left) + 10 + "px";
+    }
+  });
+};
+
+start();
