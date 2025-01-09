@@ -1,0 +1,26 @@
+.square {
+    height: 50px;
+    width: 50px;
+    background-color: #555;
+    position: absolute;
+}
+
+.start {
+    top: 150px;
+    height: 50px;
+    position: absolute;
+}
+
+.stop {
+    top: 150px;
+    height: 50px;
+    position: absolute;
+    display: none;
+}
+
+.reset {
+    top: 150px;
+    left: 75px;
+    height: 50px;
+    position: absolute;
+}
