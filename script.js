@@ -3,11 +3,6 @@ let date = new Date();
 let dayWeek = date.toLocaleString("ru-ru", { weekday: "long" });
 
 const dateOutput = () => {
-  console.log(partOfTheDay(date));
-  console.log("Сегодня: " + dayWeek.charAt(0).toUpperCase() + dayWeek.slice(1));
-  console.log("Текущее время: " + currentTime(date));
-  console.log(dateBeforeNewYear(date));
-
   console.log(`${partOfTheDay(date)}
 Сегодня: ${dayWeek.charAt(0).toUpperCase() + dayWeek.slice(1)}
 Текущее время: ${currentTime(date)}
