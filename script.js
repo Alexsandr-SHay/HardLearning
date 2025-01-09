@@ -12,7 +12,7 @@ function debounce(callback, delay) {
 }
 
 const text = () => {
-  textPar.textContent = "Текст в поле ввода " + inputText.value;
+  textPar.textContent = inputText.value;
 };
 
-inputText.addEventListener("keyup", debounce(text, 500));
+inputText.addEventListener("keyup", debounce(text, 300));
