@@ -1,12 +1,13 @@
 "use strict";
-let date = new Date();
-let dayWeek = date.toLocaleString("ru-ru", { weekday: "long" });
+const date = new Date();
+const dayWeek = date.toLocaleString("ru-ru", { weekday: "long" });
+const text = document.querySelector(".text");
 
 const dateOutput = () => {
-  console.log(`${partOfTheDay(date)}
-Сегодня: ${dayWeek.charAt(0).toUpperCase() + dayWeek.slice(1)}
-Текущее время: ${currentTime(date)}
-До нового года осталось ${dateBeforeNewYear(date)} дней`);
+  text.innerHTML = `${partOfTheDay(date)} <br/>
+Сегодня: ${dayWeek.charAt(0).toUpperCase() + dayWeek.slice(1)} <br/>
+Текущее время: ${currentTime(date)} <br/>
+До нового года осталось ${dateBeforeNewYear(date)} дней`;
 };
 
 const partOfTheDay = (date) => {
