@@ -1,19 +1,12 @@
 const btn = document.querySelector(".btn");
-let obj = {
-  user: "Alex",
-  age: 32,
-  role: "worker",
-};
+// let obj = {
+//   user: "Alex",
+//   age: 32,
+//   role: "worker",
+// };
 
-getData = () => {
-  fetch("db.json")
-    .then((response) => response.json())
-    .then((data) => {
-      return (obj = data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+const getData = () => {
+  return fetch("db.json").then((response) => response.json());
 };
 
 const sendData = (url, data) => {
@@ -25,14 +18,20 @@ const sendData = (url, data) => {
 };
 
 btn.addEventListener("click", () => {
-  getData();
-  setTimeout(() => {
-    sendData("https://jsonplaceholder.typicode.com/posts", JSON.stringify(obj))
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, 1000);
+  getData()
+    .then((data) => {
+      sendData(
+        "https://jsonplaceholder.typicode.com/posts",
+        JSON.stringify(data)
+      )
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 });
